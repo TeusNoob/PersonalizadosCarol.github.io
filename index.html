@@ -1,0 +1,642 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Personalizados da Carol - Artes e Moldes Exclusivos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Compre moldes exclusivos e produtos personalizados da Carol. Qualidade e criatividade em cada detalhe!">
+    <link rel="icon" type="image/png" href="Perfil.png">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #E91E63;
+            --primary-dark: #C2185B;
+            --secondary: #FF4081;
+            --light: #FFF5F9;
+            --white: #FFFFFF;
+            --dark: #333333;
+            --gray: #666666;
+            --light-gray: #EEEEEE;
+            --shadow: 0 4px 20px rgba(0,0,0,0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('Fundo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        header {
+            position: relative;
+            padding: 40px 20px 30px;
+            text-align: center;
+            border-radius: 0 0 25px 25px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('Pagina_Inicial.png') no-repeat center center;
+            background-size: contain;
+            background-color: #FFF5F9;
+            filter: brightness(0.9);
+            z-index: -2;
+            opacity: 0.8;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(3px);
+            z-index: -1;
+        }
+
+        .social-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            z-index: 1;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid white;
+            background-color: white;
+        }
+
+        .social-icon img {
+            width: 60%;
+            height: 60%;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover img {
+            transform: scale(1.1);
+        }
+
+        .social-icon::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .social-icon:hover::after {
+            transform: translateY(0);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            background-color: rgba(255, 255, 255, 0.7);
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+            z-index: 1;
+        }
+
+        .section {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        .product {
+            margin: 25px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 20px;
+            border-radius: 18px;
+            transition: var(--transition);
+            border: 1px solid rgba(233, 30, 99, 0.1);
+            background-color: var(--white);
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(233, 30, 99, 0.15);
+            border-color: rgba(233, 30, 99, 0.3);
+        }
+
+        .product-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .product img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .product img:hover {
+            transform: scale(1.1);
+        }
+
+        .product-name {
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 5px;
+        }
+
+        .buy-button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
+            font-size: 1rem;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .buy-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.5);
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+        }
+
+        .notice {
+            background-color: rgba(255, 228, 240, 0.3);
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+        }
+
+        .shopee-preview {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 0;
+            margin-top: 40px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--light-gray);
+        }
+
+        .shopee-header {
+            background: linear-gradient(135deg, #FF5E8E, #E91E63);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .shopee-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .shopee-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .shopee-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .shopee-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+            width: 100%;
+        }
+
+        .shopee-item {
+            background: var(--light);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .shopee-item-image {
+            height: 130px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .shopee-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+            padding: 10px;
+        }
+
+        .shopee-item-name {
+            padding: 8px;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            background: rgba(255, 255, 255, 0.8);
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .shopee-item:hover .shopee-item-image img {
+            transform: scale(1.05);
+        }
+
+        .shopee-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 14px 35px;
+            background: linear-gradient(135deg, #FF5E8E, #E91E63);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.4);
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shopee-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #E91E63, #C2185B);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .shopee-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.5);
+        }
+
+        .shopee-btn:hover::after {
+            opacity: 1;
+        }
+
+        .shopee-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .shopee-btn i {
+            margin-left: 8px;
+            font-size: 0.9em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 25px 25px 0 0;
+            font-size: 0.9rem;
+            color: var(--gray);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            z-index: 100;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 25px 20px;
+                margin: 20px 15px;
+            }
+
+            .product {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .product-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .shopee-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .shopee-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            header {
+                padding: 30px 15px 25px;
+                min-height: 180px;
+            }
+            
+            header::before {
+                background-size: cover;
+            }
+            
+            .shopee-item {
+                height: 160px;
+            }
+            
+            .shopee-item-image {
+                height: 110px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="social-container">
+            <a href="https://www.instagram.com/carolartes.print/" target="_blank" class="social-icon" aria-label="Instagram">
+                <img src="Insta.png" alt="Instagram">
+            </a>
+            <a href="https://www.tiktok.com/@personalizadosdacarol" target="_blank" class="social-icon" aria-label="TikTok">
+                <img src="Tiktok.png" alt="TikTok">
+            </a>
+            <a href="https://wa.me/31987426591" target="_blank" class="social-icon" aria-label="WhatsApp">
+                <img src="wpp.png" alt="WhatsApp">
+            </a>
+        </div>
+        <h1>Personalizados da Carol</h1>
+    </header>
+
+    <div class="section">
+        <!-- Pack de Moldes (primeiro na nova ordem) -->
+        <div class="product">
+            <div class="product-info">
+                <img src="Pack_Mods.jpg" alt="Pack de moldes">
+                <div>
+                    <div class="product-name">Pack 55 Moldes</div>
+                    <div class="product-price">R$ 9,99</div>
+                </div>
+            </div>
+            <button class="buy-button" onclick="openPaymentPopup('https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=1039323113-b37cc4a4-dd32-47d2-ab05-fcbb821d99f3')">
+                Comprar Agora
+            </button>
+        </div>
+
+        <!-- Molde Buquê -->
+        <div class="product">
+            <div class="product-info">
+                <img src="Molde_Buque.jpg" alt="Molde Buquê">
+                <div>
+                    <div class="product-name">Molde Buquê</div>
+                    <div class="product-price">R$ 4,99</div>
+                </div>
+            </div>
+            <button class="buy-button" onclick="openPaymentPopup('https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=1039323113-cc6f0f4d-7407-467a-a723-6103f27d035f')">
+                Comprar Agora
+            </button>
+        </div>
+
+        <!-- Molde Caixa Envelope -->
+        <div class="product">
+            <div class="product-info">
+                <img src="Caixa_Envelope.jpg" alt="Molde Caixa envelope">
+                <div>
+                    <div class="product-name">Molde Caixa Envelope</div>
+                    <div class="product-price">R$ 4,99</div>
+                </div>
+            </div>
+            <button class="buy-button" onclick="openPaymentPopup('https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=1039323113-82b545c9-4b78-449a-93fc-51608a99962e')">
+                Comprar Agora
+            </button>
+        </div>
+
+        <div class="notice">
+            <strong>Importante:</strong> Após a compra de um molde digital, você terá acesso a um projeto no Canva com visualização liberada. Para editar, é necessário fazer uma cópia. Os moldes são arquivos digitais e não envolvem envio de produto físico.
+        </div>
+
+        <div class="shopee-preview">
+            <div class="shopee-header">
+                <h2>Nossos Produtos Mais Vendidos</h2>
+                <p>Produtos personalizados feitos com carinho</p>
+            </div>
+            <div class="shopee-content">
+                <div class="shopee-grid">
+                    <a href="https://shopee.com.br/product/426598945/22193695734?uls_trackid=52hagi6i00v8&utm_campaign=id_kmBHvGMCR4&utm_content=----&utm_medium=affiliates&utm_source=an_18372850597&utm_term=cwa5upak9whq" target="_blank" class="shopee-item">
+                        <div class="shopee-item-image">
+                            <img src="Produto1.jpg" alt="Adesivo P/ Capa de Caderno/Agenda">
+                        </div>
+                        <div class="shopee-item-name">Adesivo P/ Capa de Caderno/Agenda</div>
+                    </a>
+                    <a href="https://shopee.com.br/product/426598945/22898369098?uls_trackid=52hagl1o0010&utm_campaign=id_pImlXgGTN8&utm_content=----&utm_medium=affiliates&utm_source=an_18372850597&utm_term=cwa5x1mywki3" target="_blank" class="shopee-item">
+                        <div class="shopee-item-image">
+                            <img src="Produto2.jpg" alt="Kit Personalizados Fazendinha Rosa">
+                        </div>
+                        <div class="shopee-item-name">Kit Personalizados Fazendinha Rosa</div>
+                    </a>
+                    <a href="https://shopee.com.br/product/426598945/23093862326?uls_trackid=52hagmvb01v8&utm_campaign=id_11c6GVzyBig&utm_content=----&utm_medium=affiliates&utm_source=an_18372850597&utm_term=cwa5ykzoov9d" target="_blank" class="shopee-item">
+                        <div class="shopee-item-image">
+                            <img src="Produto3.jpg" alt="Kit Personalizados Stitch/Angel">
+                        </div>
+                        <div class="shopee-item-name">Kit Personalizados Stitch/Angel</div>
+                    </a>
+                </div>
+                <a href="https://shopee.com.br/CarollShop" target="_blank" class="shopee-btn">
+                    <span>Ver Todos os Produtos</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/31987426591" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        &copy; 2025 Personalizados da Carol. Todos os direitos reservados.
+    </footer>
+
+    <script>
+        // Efeito de carregamento suave
+        document.body.style.opacity = '0';
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Animação dos produtos ao rolar
+        const animateOnScroll = () => {
+            const products = document.querySelectorAll('.product');
+            products.forEach((product, index) => {
+                const productPosition = product.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if(productPosition < screenPosition) {
+                    setTimeout(() => {
+                        product.style.opacity = '1';
+                        product.style.transform = 'translateY(0)';
+                    }, 150 * index);
+                }
+            });
+        };
+
+        // Função para abrir popup de pagamento
+        function openPaymentPopup(url) {
+            const width = 800;
+            const height = 600;
+            const left = (screen.width - width) / 2;
+            const top = (screen.height - height) / 2;
+            
+            window.open(url, 'Pagamento', 
+                `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes`);
+        }
+
+        // Inicializa as animações
+        window.addEventListener('load', () => {
+            const products = document.querySelectorAll('.product');
+            products.forEach(product => {
+                product.style.opacity = '0';
+                product.style.transform = 'translateY(20px)';
+                product.style.transition = 'all 0.6s ease-out';
+            });
+            
+            animateOnScroll();
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
